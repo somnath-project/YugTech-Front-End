@@ -1,55 +1,52 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import CoursesSection from './components/CoursesSection';
+import CourseDetail from './components/CourseDetail';
 import ContactSection from './components/ContactSection';
-import EnrollmentForm from './components/EnrollmentForm';
 import { MarqueeComponent } from './components/MarqueeComponent';
 import Footer from './components/Footer';
 import AnimatedSection from './components/AnimatedSection';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 const App = () => {
-  const [selectedCourse, setSelectedCourse] = useState(null);
-  const [showEnrollmentForm, setShowEnrollmentForm] = useState(false);
-
-  const handleSelectCourse = (course) => {
-    setSelectedCourse(course);
-    setShowEnrollmentForm(true);
-  };
-
-  const closeEnrollmentForm = () => {
-    setSelectedCourse(null);
-    setShowEnrollmentForm(false);
-  };
-
   return (
-    <div>
-     
-       <Header />
-      
-      <AnimatedSection>
-        <HeroSection />
-      </AnimatedSection>
-      <AnimatedSection>
-        <CoursesSection selectCourse={handleSelectCourse} />
-      </AnimatedSection>
-      <AnimatedSection>
-        <MarqueeComponent />
-      </AnimatedSection>
-      <AnimatedSection>
-        <ContactSection />
-      </AnimatedSection>
-      {showEnrollmentForm && (
-        <EnrollmentForm
-          closeForm={closeEnrollmentForm}
-          selectedCourse={selectedCourse}
-        />
-      )}
-      <AnimatedSection>
-      <Footer />
-      </AnimatedSection>
-      
-    </div>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={
+              <>
+                <AnimatedSection>
+                  <HeroSection />
+                </AnimatedSection>
+                <AnimatedSection>
+                  <CoursesSection />
+                </AnimatedSection>
+                <AnimatedSection>
+                  <MarqueeComponent />
+                </AnimatedSection>
+                <AnimatedSection>
+                  <ContactSection />
+                </AnimatedSection>
+              </>
+            } />
+            
+            <Route path="/courses/:courseId" element={
+              <AnimatedSection>
+                <CourseDetail />
+             </AnimatedSection>
+            } />
+          </Routes>
+        </main>
+
+        <Footer />
+        <ScrollToTopButton />
+      </div>
+    </Router>
   );
 };
 

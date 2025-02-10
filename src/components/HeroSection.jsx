@@ -1,6 +1,9 @@
 import React from 'react';
 import { AuroraText } from "@/components/ui/aurora-text";
 import { IconCloud } from "@/components/ui/icon-cloud";
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { WordRotate } from "@/components/ui/word-rotate";
 
 const slugs = [
   "typescript",
@@ -37,31 +40,65 @@ const slugs = [
 
 const HeroSection = () => {
   const images = slugs.map(
-    (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
+    (slug) => `https://cdn.simpleicons.org/${slug}/fff`
   );
 
   return (
-    <section className="bg-gradient-to-br from-blue-600 via-purple-500 to-indigo-400 text-white py-16">
-      <div className="container mx-auto px-6 flex flex-col md:flex-row items-center">
-        <div className="text-center md:text-left md:w-1/2">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tighter">
-            Welcome to Our <AuroraText>Institute</AuroraText>
-          </h2>
-          <p className="text-lg sm:text-xl mb-6">
-            Empowering you with knowledge and skills for a brighter future. Explore our comprehensive course offerings
-            today.
-          </p>
-          <a
-            href="#courses"
-            className="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-100"
+    <section className="relative bg-gradient-to-br from-blue-700 via-purple-700 to-indigo-800 text-white overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+      
+      <div className="container mx-auto px-4 py-20 md:py-24 lg:py-28">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative z-10"
           >
-            Explore Courses
-          </a>
-        </div>
-        <div className="relative md:w-1/2 flex justify-center mt-8 md:mt-0">
-          <div className="relative flex w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg items-center justify-center overflow-hidden rounded-lg">
-            <IconCloud images={images} />
-          </div>
+            <h1 className="text-2xl md:text-4xl lg:text-4xl font-bold mb-6 leading-tight">
+              Transform Your Career at <br />
+              <WordRotate words={["NextGen ", "Institute"]} className="!text-4xl md:!text-5xl lg:!text-5xl" /> 
+            </h1>
+            
+            <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">
+              Accelerate your tech career with industry-aligned programs in software development, cloud computing, 
+              and cutting-edge technologies. Learn from experts and join our community of successful alumni.
+            </p>
+
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="#courses"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-8 py-4 rounded-xl 
+                        text-lg font-semibold hover:bg-white/20 transition-all duration-300"
+            >
+              Explore Programs
+              <ArrowRight className="w-5 h-5" />
+            </motion.a>
+          </motion.div>
+
+          {/* Icon Cloud */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative h-[400px] lg:h-[500px] flex items-center justify-center"
+          >
+            {/* <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-3xl backdrop-blur-xl" /> */}
+            <IconCloud 
+              images={images} 
+              className="scale-75 lg:scale-90"
+              config={{
+                radius: 300,
+                imageSize: 60,
+                rotation: 0,
+                buttonColor: "transparent",
+                buttonSize: 40,
+              }}
+            />
+            {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-black/30 to-black/60" /> */}
+          </motion.div>
         </div>
       </div>
     </section>

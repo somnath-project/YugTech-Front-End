@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
+import { NumberTicker } from "@/components/ui/number-ticker";
 
 const reviews = [
   {
@@ -44,47 +45,71 @@ const ReviewCard = function (props) {
   return (
     <figure
       className={cn(
-        "relative w-48 cursor-pointer overflow-hidden rounded-xl border p-3",
-        // light styles
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        "relative w-48 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "backdrop-blur-lg transition-all hover:scale-105",
+        // Light mode
+        "border-gray-200 bg-white/10 hover:bg-white/20",
+        // Dark mode
+        "dark:border-gray-700/50 dark:bg-gray-800/20 dark:hover:bg-gray-800/30"
       )}
     >
-      <blockquote className="text-sm text-center">{body}</blockquote>
+      <blockquote className="text-sm font-medium text-center">
+        <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          {body}
+        </span>
+      </blockquote>
     </figure>
   );
 };
 
 export function MarqueeComponent() {
   return (
-    <div className="relative flex h-[450px] w-[95%] max-w-1xl mx-auto flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <div className="absolute top-4 text-center px-4">
-        <h2 className="text-xl md:text-2xl font-bold">300+ topics taught...</h2>
-        <p className="mt-2 text-sm md:text-lg">Begin your learning journey with us today!</p>
+    <div className="relative flex h-[600px] w-full flex-col items-center justify-center overflow-hidden py-12 md:py-24 mt-10">
+      <div className="w-full px-4 text-center">
+        <h2 className="text-3xl font-bold md:text-5xl lg:text-5xl mb-4">
+          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <NumberTicker value={300} className="inherit text-inherit" />+
+            Topics
+          </span>
+          <br />
+          <span className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 mt-2">
+          {/* Master Python, Java, and Salesforce from Fundamentals to Advanced Concepts. */}
+          </span>
+        </h2>
       </div>
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review, index) => (
-          <ReviewCard key={index} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review, index) => (
-          <ReviewCard key={index} {...review} />
-        ))}
-      </Marquee>
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {thirdRow.map((review, index) => (
-          <ReviewCard key={index} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {fourthRow.map((review, index) => (
-          <ReviewCard key={index} {...review} />
-        ))}
-      </Marquee>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+
+      <div className="relative mx-auto w-full max-w-7xl py-8">
+        <div className="flex flex-col gap-y-4">
+          <Marquee pauseOnHover className="[--duration:20s]">
+            {firstRow.map((review, index) => (
+              <ReviewCard key={index} {...review} />
+            ))}
+          </Marquee>
+          <Marquee reverse pauseOnHover className="[--duration:20s]">
+            {secondRow.map((review, index) => (
+              <ReviewCard key={index} {...review} />
+            ))}
+          </Marquee>
+          <Marquee pauseOnHover className="[--duration:20s]">
+            {thirdRow.map((review, index) => (
+              <ReviewCard key={index} {...review} />
+            ))}
+          </Marquee>
+          <Marquee reverse pauseOnHover className="[--duration:20s]">
+            {fourthRow.map((review, index) => (
+              <ReviewCard key={index} {...review} />
+            ))}
+          </Marquee>
+        </div>
+
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white dark:from-gray-950" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-white dark:from-gray-950" />
+      </div>
+
+      <p className="mt-8 text-center text-lg text-gray-600 dark:text-gray-400">
+        Start your learning journey today with hands-on projects and expert
+        mentors!
+      </p>
     </div>
   );
 }

@@ -19,7 +19,7 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const backendURL= import.meta.env.VITE_BACKEND_URL;
+    const backendURL = import.meta.env.VITE_BACKEND_URL;
 
     try {
       const response = await fetch(`${backendURL}/api/contactform`, {
@@ -31,10 +31,29 @@ const ContactSection = () => {
       });
 
       if (response.ok) {
-        Swal.fire("Success", "Message Send successfully!", "success");
-        setFormData({ name: '', email: '', message: '' }); // Reset form
+        Swal.fire({
+          text: "Message sent successfully!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000,
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `
+          }
+        });
+        setFormData({ name: '', email: '', message: '' });
       } else {
-        alert('Failed to send message. Please try again later.');
+        Swal.fire("Error", "Failed to send message. Please try again later.", "error");
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -43,96 +62,123 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="container mx-auto my-12 px-4">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Contact Us</h2>
-      <div className="flex flex-col md:flex-row md:space-x-8">
-        <div className="bg-white rounded-lg shadow-md p-6 md:p-8 lg:p-10 flex-1 space-y-4 mb-2">
-          <h3 className="text-lg font-semibold text-gray-800">Get in Touch</h3>
-          <div className="flex items-center space-x-2">
-            <i className="fas fa-envelope text-indigo-600"></i>
-            <p className="text-gray-600">
-              <strong>Email:</strong> contact@institute.com
-            </p>
-          </div>
-          <div className="flex items-center space-x-2">
-            <i className="fas fa-phone text-indigo-600"></i>
-            <p className="text-gray-600">
-              <strong>Phone:</strong> +91 8376556432
-            </p>
-          </div>
-          <div className="flex items-center space-x-2">
-            <i className="fas fa-map-marker-alt text-indigo-600"></i>
-            <p className="text-gray-600">
-              <strong>Location:</strong> Nashik
-            </p>
-          </div>
-          <div className="flex items-center space-x-2">
-            <i className="fas fa-clock text-indigo-600"></i>
-            <p className="text-gray-600">
-              <strong>Timings:</strong> Monday to Saturday, 9:00 AM - 6:00 PM
-            </p>
-          </div>
-          <div className="flex items-center space-x-2">
-            <i className="fas fa-life-ring text-indigo-600"></i>
-            <p className="text-gray-600">
-              <strong>Support:</strong> For assistance, please email support@institute.com
-            </p>
-          </div>
-        </div>
-        <div className="bg-white rounded-lg shadow-md p-6 md:p-8 lg:p-10 flex-1">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="contact-name" className="block text-gray-700 font-semibold mb-1">
-                Name
-              </label>
-              <input
-                type="text"
-                id="contact-name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                placeholder="Your Name"
-                required
-              />
+    <section id="contact" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <h2 className="text-4xl font-bold text-center text-gray-800 mb-12 relative pb-4">
+          Contact Us
+          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1 w-24 bg-blue-600 rounded"></span>
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* Contact Information */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-10 border border-gray-100">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h3>
+            
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 text-blue-600">
+                  <i className="fas fa-envelope text-xl"></i>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-1">Email</h4>
+                  <p className="text-gray-600">contact@institute.com</p>
+                  <p className="text-gray-600">support@institute.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 text-blue-600">
+                  <i className="fas fa-phone text-xl"></i>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-1">Phone</h4>
+                  <p className="text-gray-600">+91 8376556432</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 text-blue-600">
+                  <i className="fas fa-map-marker-alt text-xl"></i>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-1">Location</h4>
+                  <p className="text-gray-600">Nashik, Maharashtra</p>
+                  <p className="text-gray-600">India - 422001</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 text-blue-600">
+                  <i className="fas fa-clock text-xl"></i>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-1">Working Hours</h4>
+                  <p className="text-gray-600">Mon-Sat: 9:00 AM - 6:00 PM</p>
+                  <p className="text-gray-600">Sunday: Closed</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <label htmlFor="contact-email" className="block text-gray-700 font-semibold mb-1">
-                Email
-              </label>
-              <input
-                type="email"
-                id="contact-email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                placeholder="Your Email"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="contact-message" className="block text-gray-700 font-semibold mb-1">
-                Message
-              </label>
-              <textarea
-                id="contact-message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows="4"
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                placeholder="Your Message"
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 w-full text-center"
-            >
-              Send Message
-            </button>
-          </form>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-10 border border-gray-100">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="5"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                  placeholder="Write your message here..."
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-600 transition-all duration-300 transform hover:scale-[1.02]"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
