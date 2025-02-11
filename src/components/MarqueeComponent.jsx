@@ -71,7 +71,6 @@ export function MarqueeComponent() {
             <NumberTicker
               value={300}
               className="inherit text-inherit"
-              style={{ willChange: "transform, opacity" }}
             />
             + Topics
           </span>
