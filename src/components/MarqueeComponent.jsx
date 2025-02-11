@@ -68,12 +68,16 @@ export function MarqueeComponent() {
       <div className="w-full px-4 text-center">
         <h2 className="text-3xl font-bold md:text-5xl lg:text-5xl mb-4">
           <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            <NumberTicker value={300} className="inherit text-inherit" />+
-            Topics
+            <NumberTicker
+              value={300}
+              className="inherit text-inherit"
+              style={{ willChange: "transform, opacity" }}
+            />
+            + Topics
           </span>
           <br />
           <span className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 mt-2">
-          {/* Master Python, Java, and Salesforce from Fundamentals to Advanced Concepts. */}
+            {/* Master Python, Java, and Salesforce from Fundamentals to Advanced Concepts. */}
           </span>
         </h2>
       </div>
