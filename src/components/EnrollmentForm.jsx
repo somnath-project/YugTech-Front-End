@@ -90,8 +90,23 @@ const EnrollmentForm = ({ closeForm, selectedCourse }) => {
         icon: "success",
         showConfirmButton: false,
         timer: 1000,
-        showClass: { popup: "animate__animated animate__fadeInUp animate__faster" },
-        hideClass: { popup: "animate__animated animate__fadeOutDown animate__faster" }
+        width: "400px",
+        padding: "1.5rem",
+        background: "#f8f9fa",
+        color: "#212529",
+        showClass: { 
+          popup: "animate__animated animate__fadeInUp animate__faster" 
+        },
+        hideClass: { 
+          popup: "animate__animated animate__fadeOutDown animate__faster" 
+        },
+        customClass: {
+          title: 'text-success fw-bold mb-3',
+          icon: 'border-success',
+          popup: 'border'
+        },
+        buttonsStyling: false,
+        backdrop: 'rgba(33,37,41,0.15)'
       });
 
       closeForm();
