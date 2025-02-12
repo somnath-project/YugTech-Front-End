@@ -75,7 +75,7 @@ export function MarqueeComponent() {
             /> */}
             <CountUp
               end={300}
-              duration={2}
+              duration={6}
               enableScrollSpy
               scrollSpyOnce
               className="inherit text-inherit"
