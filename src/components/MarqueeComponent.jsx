@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 import { NumberTicker } from "@/components/ui/number-ticker";
+import CountUp from 'react-countup';
 
 const reviews = [
   {
@@ -68,8 +69,15 @@ export function MarqueeComponent() {
       <div className="w-full px-4 text-center">
         <h2 className="text-3xl font-bold md:text-5xl lg:text-5xl mb-4">
           <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            <NumberTicker
+            {/* <NumberTicker
               value={300}
+              className="inherit text-inherit"
+            /> */}
+            <CountUp
+              end={300}
+              duration={2}
+              enableScrollSpy
+              scrollSpyOnce
               className="inherit text-inherit"
             />
             + Topics
