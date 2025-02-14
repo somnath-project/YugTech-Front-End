@@ -18,10 +18,101 @@ const CourseDetail = () => {
       .catch((error) => console.error("Error fetching course:", error));
   }, [courseId]);
 
+  // if (!course)
+  //   return (
+  //     <div className="text-center py-8">
+  //       <ClipLoader size={50} color={"#123abc"} loading={!course} />
+  //     </div>
+  //   );
+
   if (!course)
     return (
-      <div className="text-center py-8">
-        <ClipLoader size={50} color={"#123abc"} loading={!course} />
+      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900 p-4">
+        <div className="max-w-7xl mx-auto space-y-12 animate-pulse">
+          {/* Header Section Skeleton */}
+          <div className="flex flex-col lg:flex-row gap-12 items-start">
+            {/* Left Content Skeleton */}
+            <div className="flex-1 space-y-8">
+              <div className="space-y-4">
+                <div className="h-8 bg-gray-200 rounded w-1/3 mb-6"></div>
+                <div className="h-6 bg-gray-200 rounded w-full max-w-2xl"></div>
+                <div className="h-4 bg-gray-200 rounded w-2/3"></div>
+              </div>
+
+              {/* Stats Grid Skeleton */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-gray-100 p-6 rounded-2xl">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 bg-gray-200 rounded-full"></div>
+                      <div className="space-y-2">
+                        <div className="h-4 bg-gray-200 rounded w-20"></div>
+                        <div className="h-6 bg-gray-200 rounded w-12"></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Specifications Skeleton */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[1, 2].map((i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gray-200 rounded-lg"></div>
+                    <div className="space-y-2">
+                      <div className="h-4 bg-gray-200 rounded w-24"></div>
+                      <div className="h-4 bg-gray-200 rounded w-32"></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Enrollment Card Skeleton */}
+            <div className="w-full lg:w-[400px] bg-gray-100 rounded-3xl p-8">
+              <div className="space-y-8">
+                <div className="space-y-2">
+                  <div className="h-6 bg-gray-200 rounded w-1/2"></div>
+                  <div className="h-4 bg-gray-200 rounded w-2/3"></div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="h-12 bg-gray-200 rounded-xl"></div>
+                  <div className="h-12 bg-gray-200 rounded-xl"></div>
+
+                  <div className="space-y-2 pt-2">
+                    <div className="h-4 bg-gray-200 rounded w-1/2 mx-auto"></div>
+                    <div className="h-4 bg-gray-200 rounded w-1/3 mx-auto"></div>
+                  </div>
+                </div>
+
+                <div className="pt-6 space-y-4">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <div className="w-4 h-4 bg-gray-200 rounded"></div>
+                      <div className="h-3 bg-gray-200 rounded w-32"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Certifications Section Skeleton */}
+          <div className="pt-12">
+            <div className="h-6 bg-gray-200 rounded w-1/3 mb-8"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="bg-gray-100 p-6 rounded-2xl">
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 bg-gray-200 rounded-lg"></div>
+                    <div className="h-4 bg-gray-200 rounded w-24"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     );
 
@@ -156,7 +247,7 @@ const CourseDetail = () => {
                         onClick={() => setShowForm(true)}
                         className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 rounded-xl text-sm font-bold hover:scale-[1.02] transition-transform duration-300 shadow-lg shadow-cyan-500/20"
                       >
-                        Enroll Now 
+                        Enroll Now
                       </button>
 
                       <button className="w-full flex items-center justify-center gap-2 border-2 border-white/30 text-sm text-white py-3 rounded-xl font-semibold hover:border-white/50 hover:bg-white/5 transition-all duration-300">
@@ -180,10 +271,10 @@ const CourseDetail = () => {
                       <div className="text-center pt-2">
                         <div className="inline-flex items-baseline gap-2">
                           <span className="text-white/50 text-sm line-through">
-                          ₹{course.originalPrice || '15000'}
+                            ₹{course.originalPrice || "15000"}
                           </span>
                           <span className="text-lg font-bold text-green-400">
-                          ₹{course.discountedPrice || '10000'}
+                            ₹{course.discountedPrice || "10000"}
                           </span>
                         </div>
                         <p className="text-xs mt-1 text-cyan-400 font-medium">

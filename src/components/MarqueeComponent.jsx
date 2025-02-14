@@ -4,6 +4,7 @@ import { NumberTicker } from "@/components/ui/number-ticker";
 import CountUp from 'react-countup';
 
 const reviews = [
+  // Java Topics
   {
     body: "Arrays in Java",
   },
@@ -34,6 +35,70 @@ const reviews = [
   {
     body: "Annotations in Java",
   },
+
+  // Salesforce Topics
+  {
+    body: "Salesforce Apex Programming",
+  },
+  {
+    body: "Salesforce Triggers and Workflows",
+  },
+  {
+    body: "Lightning Web Components (LWC)",
+  },
+  {
+    body: "SOQL and SOSL in Salesforce",
+  },
+  {
+    body: "Salesforce Security and Authentication",
+  },
+  {
+    body: "Salesforce REST and SOAP API",
+  },
+  {
+    body: "Salesforce Admin Basics",
+  },
+  {
+    body: "Salesforce Deployment and Release Management",
+  },
+  {
+    body: "Salesforce Integration Patterns",
+  },
+  {
+    body: "Salesforce Marketing Cloud Overview",
+  },
+
+  // Python Topics
+  {
+    body: "Python Basics",
+  },
+  {
+    body: "Object-Oriented Programming in Python",
+  },
+  {
+    body: "Python Web Frameworks (Django & Flask)",
+  },
+  {
+    body: "Data Science with Python",
+  },
+  {
+    body: "Python for Automation (Scripting)",
+  },
+  {
+    body: "Machine Learning with Python",
+  },
+  {
+    body: "Deep Learning with TensorFlow & PyTorch",
+  },
+  {
+    body: "Python for Cybersecurity",
+  },
+  {
+    body: "Python for Web Scraping (BeautifulSoup & Scrapy)",
+  },
+  {
+    body: "Python Testing and Debugging",
+  }
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 4);

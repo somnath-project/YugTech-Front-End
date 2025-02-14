@@ -7,7 +7,7 @@ import { RainbowButton } from "@/components/ui/rainbow-button";
 // Skeleton loader component that mimics the structure of a course card.
 const SkeletonCourseCard = () => {
   return (
-    <div className="relative group bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 animate-pulse">
+    <div className="relative group bg-white rounded-xl shadow-lg  overflow-hidden border border-gray-100 animate-pulse">
       <div className="relative h-48 overflow-hidden bg-gray-300"></div>
       <div className="p-6">
         <div className="flex items-center gap-2 mb-4">
