@@ -156,22 +156,22 @@ export function MarqueeComponent() {
 
       <div className="relative mx-auto w-full max-w-7xl py-8">
         <div className="flex flex-col gap-y-4">
-          <Marquee pauseOnHover className="[--duration:20s]">
+          <Marquee pauseOnHover className="[--duration:50s]">
             {firstRow.map((review, index) => (
               <ReviewCard key={index} {...review} />
             ))}
           </Marquee>
-          <Marquee reverse pauseOnHover className="[--duration:20s]">
+          <Marquee reverse pauseOnHover className="[--duration:50s]">
             {secondRow.map((review, index) => (
               <ReviewCard key={index} {...review} />
             ))}
           </Marquee>
-          <Marquee pauseOnHover className="[--duration:20s]">
+          <Marquee pauseOnHover className="[--duration:50s]">
             {thirdRow.map((review, index) => (
               <ReviewCard key={index} {...review} />
             ))}
           </Marquee>
-          <Marquee reverse pauseOnHover className="[--duration:20s]">
+          <Marquee reverse pauseOnHover className="[--duration:50s]">
             {fourthRow.map((review, index) => (
               <ReviewCard key={index} {...review} />
             ))}
