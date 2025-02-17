@@ -30,7 +30,7 @@ const Header = () => {
               className="text-xl sm:text-2xl font-bold tracking-tight hover:text-gray-200 transition duration-300"
               onClick={closeNav}
             >
-              NextGen Institute
+              YugTech Academy
             </HashLink>
           </div>
 

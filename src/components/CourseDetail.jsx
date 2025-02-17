@@ -287,7 +287,7 @@ const CourseDetail = () => {
                       <div className="flex flex-col gap-3 text-sm text-white/80">
                         <div className="flex items-center gap-2">
                           <span>✅</span>
-                          <span className="text-sm">Lifetime Access</span>
+                          <span className="text-sm">3-day free demo session</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <span>✅</span>

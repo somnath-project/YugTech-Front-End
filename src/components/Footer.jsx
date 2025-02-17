@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
                     {/* About Section */}
                     <div className="space-y-4">
-                        <h3 className="text-lg font-semibold text-white">Institute Courses</h3>
+                        <h3 className="text-lg font-semibold text-white">YugTech Academy</h3>
                         <p className="text-sm leading-relaxed">
                             Empowering learners worldwide with quality education and professional courses.
                         </p>
@@ -66,7 +66,7 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-800 pt-8 mt-8">
                     <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-                        <p className="text-sm">&copy; 2025 Institute Courses. All rights reserved.</p>
+                        <p className="text-sm">&copy; 2025 YugTech Academy Courses. All rights reserved.</p>
                         <div className="flex space-x-4">
                             <a href="/terms" className="text-sm hover:text-white transition-colors">Terms</a>
                             <a href="/privacy" className="text-sm hover:text-white transition-colors">Privacy</a>

@@ -58,7 +58,7 @@ const HeroSection = () => {
           >
             <h1 className="text-2xl md:text-4xl lg:text-4xl font-bold mb-6 leading-tight">
               Transform Your Career at <br />
-              <WordRotate words={["NextGen ", "Institute"]} className="!text-4xl md:!text-5xl lg:!text-5xl" /> 
+              <WordRotate words={["YugTech", " Academy"]} className="!text-4xl md:!text-4xl lg:!text-4xl" /> 
             </h1>
             
             <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">
