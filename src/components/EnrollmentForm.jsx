@@ -112,8 +112,8 @@ const EnrollmentForm = ({ closeForm, selectedCourse }) => {
       closeForm();
       triggerConfetti();
 
-      emailjs.init("ljrg2HzXzm5dCjmpg");
-      await emailjs.send("service_a4vpqfh", "template_mv0vmdn", {
+      emailjs.init("6Yx-9qp2M9sCHKw3w");
+      await emailjs.send("service_gu5r29s", "template_afax5w8", {
         courseName: formData.courseName,
         email: formData.email,
         name: formData.name,
