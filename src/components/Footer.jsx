@@ -8,23 +8,25 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
             {/* About Section */}
             <div className="space-y-4">
-  <div className="space-y-4"> {/* Group for text content */}
-    <h3 className="text-lg font-semibold text-white md:text-xl">
-      YugTech Academy
-    </h3>
-    <p className="text-sm leading-relaxed md:text-base">
-      Empowering learners worldwide with quality education and
-      professional courses.
-    </p>
-  </div>
-  
-  {/* Separate container for spinning text with custom margin */}
-  <div className="!mt-11 flex justify-center w-full">
-    <SpinningText className="text-xs md:text-sm">
-      learn more • earn more • grow more •
-    </SpinningText>
-  </div>
-</div>
+              <div className="space-y-4">
+                
+                {/* Group for text content */}
+                <h3 className="text-lg font-semibold text-white md:text-xl">
+                  YugTech Academy
+                </h3>
+                <p className="text-sm leading-relaxed md:text-base">
+                  Empowering learners worldwide with quality education and
+                  professional courses.
+                </p>
+              </div>
+
+              {/* Separate container for spinning text with custom margin */}
+              <div className="!mt-11 flex justify-center w-full">
+                <SpinningText className="text-xs md:text-sm">
+                  learn more • earn more • grow more •
+                </SpinningText>
+              </div>
+            </div>
 
             {/* Legal Section */}
             <div className="space-y-4">
