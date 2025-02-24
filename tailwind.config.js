@@ -8,7 +8,7 @@ export default {
   theme: {
   	extend: {
   		transitionProperty: {
-  			scale: 'transform'
+  			scale: 'transform',
   		},
 		  backdropBlur: {
 			xs: '2px',

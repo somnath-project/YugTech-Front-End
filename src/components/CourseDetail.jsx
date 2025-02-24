@@ -4,6 +4,7 @@ import EnrollmentForm from "./EnrollmentForm";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import ClipLoader from "react-spinners/ClipLoader";
 import AnimatedSection from "./AnimatedSection";
+import {Accordion, AccordionItem} from "@heroui/accordion";
 
 const CourseDetail = () => {
   const { courseId } = useParams();
@@ -287,7 +288,9 @@ const CourseDetail = () => {
                       <div className="flex flex-col gap-3 text-sm text-white/80">
                         <div className="flex items-center gap-2">
                           <span>✅</span>
-                          <span className="text-sm">3-day free demo session</span>
+                          <span className="text-sm">
+                            3-day free demo session
+                          </span>
                         </div>
                         <div className="flex items-center gap-2">
                           <span>✅</span>
@@ -448,6 +451,57 @@ const CourseDetail = () => {
                   ))}
                 </div>
               </div>
+              {/* Frequently Asked Questions */}
+              <div className="space-y-6 mt-12">
+                <h2 className="text-xl font-semibold text-gray-900 border-l-4 border-indigo-600 pl-4">
+                  Frequently Asked Questions
+                </h2>
+                <Accordion isCompact className="border border-gray-200 rounded-lg divide-y">
+                  {[
+                    {
+                      question: `Can I learn ${course.courseName} In 3 Months?`,
+                      answer: `Yes, ${course.courseName} can offer promising career opportunities due to its high demand, diverse career paths, competitive salaries, certification opportunities, global reach, and potential for remote work and career growth.`,
+                    },
+                    {
+                      question: "Who Can join this course?",
+                      answer:
+                        "The course is open for graduates (technical and non-technical background), working professionals (any field), students, IT professionals who want a career switch, IT aspirants with career or educational gaps, women who want to restart their career journey, and anyone who is willing to work hard for joining one of the most in-demand IT fields.",
+                    },
+                    {
+                      question: `Does ${course.courseName} have a good career?`,
+                      answer:
+                        `Absolutely, ${course.courseName} is a rapidly growing technology that's currently in high demand in the IT industry. It's a big deal right now!`,
+                    },
+                    {
+                      question: `Why is Online ${course.courseName} Certification Important?`,
+                      answer: `Online ${course.courseName} certification is crucial because it adds credibility to their skills, improves career prospects, and helps them stand out in the job market. Moreover, it allows students to stay updated with the latest industry trends and opens doors to exciting career paths in the tech world.`,
+                    },
+                    {
+                      question: "What is this course all about?",
+                      answer: `This course is all about the ${course.courseName} which is the one of the blooming technology in the IT Industry.`,
+                    },
+                  ].map((faq, index) => (
+                    <AccordionItem
+                    key={index}
+                    aria-label={faq.question}
+                    className="group"
+                    title={
+                      <div className="flex justify-between items-center w-full p-4 ">
+                        <span className="text-gray-900 font-medium text-left">
+                          {faq.question}
+                        </span>
+                      </div>
+                    }
+                  >
+                    <div className="px-4 pb-4 pt-2 bg-gray-50">
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
 
               {/* CTA Section */}
               <div className="pt-8 border-t border-gray-100">
