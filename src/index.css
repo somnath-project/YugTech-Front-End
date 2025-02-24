@@ -95,3 +95,14 @@ body {
   background-position: right 0.75rem center;
   background-size: 1.25em;
 }
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
