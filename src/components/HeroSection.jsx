@@ -9,7 +9,6 @@ import { BoxReveal } from "@/components/magicui/box-reveal";
 const slugs = [
   "typescript",
   "javascript",
-  "dart",
   "java",
   "react",
   "flutter",
@@ -23,20 +22,21 @@ const slugs = [
   "amazonaws",
   "postgresql",
   "firebase",
-  "nginx",
-  "vercel",
-  "testinglibrary",
+  "springboot",
+  "tailwindcss",
+  "python",
   "jest",
-  "cypress",
+  "mysql",
   "docker",
   "git",
   "jira",
   "github",
-  "gitlab",
+  "vite",
   "visualstudiocode",
   "androidstudio",
   "sonarqube",
-  "figma",
+  "spring",
+  "intellijidea"
 ];
 
 const HeroSection = () => {
