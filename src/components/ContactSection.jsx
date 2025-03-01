@@ -1,33 +1,33 @@
-import React, { useState } from 'react';
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import Swal from "sweetalert2";
+import TextField from "@mui/material/TextField";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const backendURL = import.meta.env.VITE_BACKEND_URL;
 
     try {
       const response = await fetch(`${backendURL}/api/contactform`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
@@ -41,22 +41,26 @@ const ContactSection = () => {
               animate__animated
               animate__fadeInUp
               animate__faster
-            `
+            `,
           },
           hideClass: {
             popup: `
               animate__animated
               animate__fadeOutDown
               animate__faster
-            `
-          }
+            `,
+          },
         });
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: "", email: "", message: "" });
       } else {
-        Swal.fire("Error", "Failed to send message. Please try again later.", "error");
+        Swal.fire(
+          "Error",
+          "Failed to send message. Please try again later.",
+          "error"
+        );
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
       Swal.fire("Error", error.message, "error");
     }
   };
@@ -70,10 +74,12 @@ const ContactSection = () => {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-10">
-          {/* Contact Information */}
+          {/* Contact Information (remains the same) */}
           <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-10 border border-gray-100">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h3>
-            
+            <h3 className="text-2xl font-bold text-gray-800 mb-6">
+              Get in Touch
+            </h3>
+
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 text-blue-600">
@@ -112,7 +118,9 @@ const ContactSection = () => {
                   <i className="fas fa-clock text-xl"></i>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-1">Working Hours</h4>
+                  <h4 className="font-semibold text-gray-800 mb-1">
+                    Working Hours
+                  </h4>
                   <p className="text-gray-600">Mon-Sat: 9:00 AM - 6:00 PM</p>
                   <p className="text-gray-600">Sunday: Closed</p>
                 </div>
@@ -123,53 +131,41 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-10 border border-gray-100">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
+              <TextField
+                fullWidth
+                id="name"
+                name="name"
+                label="Full Name"
+                variant="outlined"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
+              <TextField
+                fullWidth
+                id="email"
+                name="email"
+                label="Email Address"
+                type="email"
+                variant="outlined"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
-                  placeholder="Write your message here..."
-                  required
-                ></textarea>
-              </div>
+              <TextField
+                fullWidth
+                id="message"
+                name="message"
+                label="Message"
+                variant="outlined"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                multiline
+                rows={5}
+              />
 
               <button
                 type="submit"

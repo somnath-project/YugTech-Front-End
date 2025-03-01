@@ -204,6 +204,7 @@ const EnrollmentForm = ({ closeForm, selectedCourse }) => {
                 name="phone"
                 label="Phone"
                 variant="outlined"
+                type="number"
                 fullWidth
                 value={formData.phone}
                 onChange={handleChange}
