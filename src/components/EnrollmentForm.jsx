@@ -64,6 +64,7 @@ const EnrollmentForm = ({ closeForm, selectedCourse }) => {
   const validateForm = () => {
     const newErrors = {};
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const phonePattern = /^[6789]\d{9}$/;
 
     if (!formData.name.trim()) newErrors.name = "Full Name is required";
     if (!formData.email.trim()) {
@@ -71,7 +72,11 @@ const EnrollmentForm = ({ closeForm, selectedCourse }) => {
     } else if (!emailPattern.test(formData.email)) {
       newErrors.email = "Invalid email address";
     }
-    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    if (!formData.phone.trim()){
+      newErrors.phone = "Phone number is required";
+   } else if(!phonePattern.test(formData.phone)){
+     newErrors.phone = "Invalid Phone Number"
+   }
     if (!formData.city.trim()) newErrors.city = "City is required";
     if (!formData.education) newErrors.education = "Education is required";
     if (!formData.workingProfession) newErrors.workingProfession = "Profession is required";
@@ -204,7 +209,8 @@ const EnrollmentForm = ({ closeForm, selectedCourse }) => {
                 name="phone"
                 label="Phone"
                 variant="outlined"
-                type="number"
+                type="tel"
+                inputProps={{ maxLength: 10 }}
                 fullWidth
                 value={formData.phone}
                 onChange={handleChange}
