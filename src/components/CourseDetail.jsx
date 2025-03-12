@@ -274,7 +274,7 @@ const CourseDetail = () => {
                       </button>
 
                       {/* Discounted Price Section */}
-                      <div className="text-center pt-2">
+                      {/* <div className="text-center pt-2">
                         <div className="inline-flex items-baseline gap-2">
                           <span className="text-white/50 text-sm line-through">
                             ₹{course.originalPrice || "15000"}
@@ -287,7 +287,7 @@ const CourseDetail = () => {
                           Limited Time Offer 🔥
                         </p>
                       </div>
-                    </div>
+                    </div> */}
 
                     <div className="pt-6 border-t border-white/10">
                       <div className="flex flex-col gap-3 text-sm text-white/80">
