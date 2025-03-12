@@ -274,19 +274,19 @@ const CourseDetail = () => {
                       </button>
 
                       {/* Discounted Price Section */}
-                      {/* <div className="text-center pt-2">
+                      <div className="text-center pt-2">
                         <div className="inline-flex items-baseline gap-2">
-                          <span className="text-white/50 text-sm line-through">
+                          {/* <span className="text-white/50 text-sm line-through">
                             ₹{course.originalPrice || "15000"}
-                          </span>
+                          </span> */}
                           <span className="text-lg font-bold text-green-400">
-                            ₹{course.discountedPrice || "10000"}
+                            ₹{course.discountedPrice || "15000"}
                           </span>
                         </div>
-                        <p className="text-xs mt-1 text-cyan-400 font-medium">
+                        {/* <p className="text-xs mt-1 text-cyan-400 font-medium">
                           Limited Time Offer 🔥
-                        </p>
-                      </div> */}
+                        </p> */}
+                      </div>
                     </div>
 
                     <div className="pt-6 border-t border-white/10">
