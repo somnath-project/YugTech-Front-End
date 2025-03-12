@@ -286,8 +286,8 @@ const CourseDetail = () => {
                         <p className="text-xs mt-1 text-cyan-400 font-medium">
                           Limited Time Offer 🔥
                         </p>
-                      </div>
-                    </div> */}
+                      </div> */}
+                    </div>
 
                     <div className="pt-6 border-t border-white/10">
                       <div className="flex flex-col gap-3 text-sm text-white/80">
