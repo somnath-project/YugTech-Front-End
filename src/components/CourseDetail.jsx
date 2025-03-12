@@ -294,7 +294,7 @@ const CourseDetail = () => {
                         <div className="flex items-center gap-2">
                           <span>✅</span>
                           <span className="text-sm">
-                            3-day free demo session
+                            7-day free demo session
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
