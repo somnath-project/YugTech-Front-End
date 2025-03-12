@@ -87,8 +87,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-1">Email</h4>
-                  <p className="text-gray-600">contact@institute.com</p>
-                  <p className="text-gray-600">support@institute.com</p>
+                  <p className="text-gray-600">yugtechacademy@gmail.com</p>
+                  
                 </div>
               </div>
 
@@ -96,10 +96,10 @@ const ContactSection = () => {
                 <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 text-blue-600">
                   <i className="fas fa-phone text-xl"></i>
                 </div>
-                <div>
+                {/* <div>
                   <h4 className="font-semibold text-gray-800 mb-1">Phone</h4>
-                  <p className="text-gray-600">+91 8376556432</p>
-                </div>
+                  <p className="text-gray-600">-</p>
+                </div> */}
               </div>
 
               <div className="flex items-start space-x-4">
